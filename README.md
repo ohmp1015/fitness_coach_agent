@@ -130,7 +130,7 @@ fitness-coach-agent/
 
 | Layer | Technology |
 |-------|-----------|
-| AI/LLM | Groq (Llama 3.3 70B) |
+| AI/LLM | Groq (llama-3.3-70b-versatile) |
 | Vision | Google Gemini 1.5 Flash |
 | Backend | Node.js + Express + TypeScript |
 | Frontend | React + Vite + Tailwind CSS |
@@ -138,8 +138,3 @@ fitness-coach-agent/
 | Charts | Recharts |
 | Hosting | Render + Vercel |
 
----
-
-## 📝 License
-
-MIT License - Built for 91Agents hiring exercise.
