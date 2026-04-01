@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openclaw.ai/schema/openclaw.json",
+  "name": "FitCoach AI",
+  "description": "AI-Powered Fitness Coach Agent with Multi-Agent Architecture",
+  "version": "1.0.0",
+  "provider": {
+    "primary": {
+      "type": "groq",
+      "model": "llama-3.3-70b-versatile",
+      "apiKey": "${GROQ_API_KEY}"
+    },
+    "vision": {
+      "type": "google",
+      "model": "gemini-1.5-flash",
+      "apiKey": "${GEMINI_API_KEY}"
+    }
+  },
+  
+  "memory": {
+    "enabled": true,
+    "backend": "sqlite",
+    "path": "./data/fitness-coach.db"
+  },
+  "skills": [
+    "./openclaw-skills/fitness-coach-skill",
+    "./openclaw-skills/progress-tracker-skill"
+  ]
+}
