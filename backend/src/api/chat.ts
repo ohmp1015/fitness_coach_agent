@@ -18,6 +18,7 @@ router.post('/message', async (req: Request, res: Response) => {
   try {
     const { message, userId, channel = 'web' } = req.body;
     if (!message || typeof message !== 'string') return res.status(400).json({ error: 'Message is required' });
+    if (!userId || typeof userId !== 'string') return res.status(400).json({ error: 'UserId is required' });
 
     const cleanMessage = sanitizeInput(message);
     const user = await UserService.getOrCreateUser(userId);

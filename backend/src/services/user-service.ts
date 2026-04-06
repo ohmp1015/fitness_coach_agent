@@ -25,6 +25,32 @@ export interface UserProfile {
 
 export class UserService {
 
+  static async getOrCreateUser(userId: string): Promise<UserProfile> {
+    const { data: existingUser } = await supabase.from('users').select('*').eq('id', userId).single();
+
+    if (existingUser) {
+      return existingUser as UserProfile;
+    }
+
+    const newUser: Partial<UserProfile> = {
+      id: userId,
+      fitness_level: 'beginner',
+      goal: 'general fitness',
+      diet_type: 'balanced',
+      workout_type: 'home',
+      daily_water_target: 2000,
+      points: 0,
+      level: 'Rookie',
+      streak: 0,
+      longest_streak: 0,
+      total_workouts: 0,
+    };
+
+    await supabase.from('users').insert([newUser]);
+    const { data: created } = await supabase.from('users').select('*').eq('id', userId).single();
+    return created as UserProfile;
+  }
+
   static async updateProfile(userId: string, data: Partial<UserProfile>): Promise<UserProfile> {
     const { id, ...updateData } = data as any;
     await supabase.from('users').update({ ...updateData, updated_at: new Date().toISOString() }).eq('id', userId);
