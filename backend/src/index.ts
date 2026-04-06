@@ -33,19 +33,22 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
   res.status(500).json({ error: 'Internal server error' });
 });
 
-async function start() {
-  await initDatabase();
-  app.listen(PORT, () => {
-    console.log(`
+// For local development
+if (require.main === module) {
+  async function start() {
+    await initDatabase();
+    app.listen(PORT, () => {
+      console.log(`
   ╔══════════════════════════════════════════╗
   ║   🏋️  FitCoach AI Agent - Backend       ║
   ║   Running on port ${PORT}                   ║
   ║   Database: Supabase                     ║
   ║   API: http://localhost:${PORT}             ║
   ╚══════════════════════════════════════════╝
-    `);
-  });
+      `);
+    });
+  }
+  start();
 }
 
-start();
 export default app;
