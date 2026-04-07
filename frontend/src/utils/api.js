@@ -20,7 +20,7 @@ export function getUserId() {
 
 // Chat API
 export async function sendMessage(message) {
-  const response = await api.post('/chat/message', {
+  const response = await api.post('/api/chat/message', {
     message,
     userId: getUserId(),
     channel: 'web',
