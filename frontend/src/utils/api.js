@@ -72,13 +72,13 @@ export async function getGamificationData() {
 
 // Dashboard API
 export async function getDashboard() {
-  const response = await api.get(`/dashboard/${getUserId()}`);
+  const response = await api.get(`api/dashboard/${getUserId()}`);
   return response.data;
 }
 
 // Exercise search
 export async function searchExercises(query) {
-  const response = await api.get(`/dashboard/exercises/search?q=${encodeURIComponent(query)}`);
+  const response = await api.get(`api/dashboard/exercises/search?q=${encodeURIComponent(query)}`);
   return response.data;
 }
 
