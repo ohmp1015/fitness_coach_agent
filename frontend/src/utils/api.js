@@ -30,17 +30,17 @@ export async function sendMessage(message) {
 
 // User API
 export async function getUser() {
-  const response = await api.get(`/user/${getUserId()}`);
+  const response = await api.get(`/api/user/${getUserId()}`);
   return response.data;
 }
 
 export async function updateProfile(data) {
-  const response = await api.put(`/user/${getUserId()}`, data);
+  const response = await api.put(`/api/user/${getUserId()}`, data);
   return response.data;
 }
 
 export async function calculateBMI(weight, height) {
-  const response = await api.post('/user/bmi', { weight, height });
+  const response = await api.post('/api/user/bmi', { weight, height });
   return response.data;
 }
 
@@ -51,34 +51,34 @@ export async function logWeight(weight) {
 }
 
 export async function logWorkout(data) {
-  const response = await api.post(`/progress/${getUserId()}/workout`, data);
+  const response = await api.post(`/api/progress/${getUserId()}/workout`, data);
   return response.data;
 }
 
 export async function getWeeklyReport() {
-  const response = await api.get(`/progress/${getUserId()}/weekly-report`);
+  const response = await api.get(`/api/progress/${getUserId()}/weekly-report`);
   return response.data;
 }
 
 export async function getChartData(days = 30) {
-  const response = await api.get(`/progress/${getUserId()}/charts?days=${days}`);
+  const response = await api.get(`/api/progress/${getUserId()}/charts?days=${days}`);
   return response.data;
 }
 
 export async function getGamificationData() {
-  const response = await api.get(`/progress/${getUserId()}/gamification`);
+  const response = await api.get(`/api/progress/${getUserId()}/gamification`);
   return response.data;
 }
 
 // Dashboard API
 export async function getDashboard() {
-  const response = await api.get(`api/dashboard/${getUserId()}`);
+  const response = await api.get(`/api/dashboard/${getUserId()}`);
   return response.data;
 }
 
 // Exercise search
 export async function searchExercises(query) {
-  const response = await api.get(`api/dashboard/exercises/search?q=${encodeURIComponent(query)}`);
+  const response = await api.get(`/api/dashboard/exercises/search?q=${encodeURIComponent(query)}`);
   return response.data;
 }
 
