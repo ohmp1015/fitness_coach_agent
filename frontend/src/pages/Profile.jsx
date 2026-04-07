@@ -136,16 +136,16 @@ export default function Profile() {
 
         <div className="grid md:grid-cols-2 gap-4">
           <Field label="Full Name">
-            <input type="text" value={profile.name} onChange={e => setProfile({ ...profile, name: e.target.value })} placeholder="Your name" className={inputClass} required/>
+            <input type="text" value={profile.name} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile({ ...profile, name: e.target.value });}}} placeholder="Your name" className={inputClass} required/>
           </Field>
           <Field label="Age">
-            <input type="number" value={profile.age} onChange={e => setProfile({ ...profile, age: e.target.value })} placeholder="25" className={inputClass} required/>
+            <input type="number" value={profile.age} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile({ ...profile, age: e.target.value });}}} placeholder="25" className={inputClass} required/>
           </Field>
           <Field label="Weight (kg)">
-            <input type="number" value={profile.weight} onChange={e => setProfile({ ...profile, weight: e.target.value })} placeholder="70" className={inputClass} required/>
+            <input type="number" value={profile.weight} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile({ ...profile, weight: e.target.value });}}} placeholder="70" className={inputClass} required/>
           </Field>
           <Field label="Height (cm)">
-            <input type="number" value={profile.height} onChange={e => setProfile({ ...profile, height: e.target.value })} placeholder="170" className={inputClass} required/>
+            <input type="number" value={profile.height} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile({ ...profile, height: e.target.value });}}} placeholder="170" className={inputClass} required/>
           </Field>
         </div>
 
