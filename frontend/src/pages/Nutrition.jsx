@@ -69,12 +69,12 @@ export default function Nutrition() {
         <div className="flex flex-wrap gap-3 items-end">
           <div>
             <label className="text-xs text-dark-200/40 block mb-1">Weight (kg)</label>
-            <input type="number" value={weight} onChange={e => setWeight(e.target.value)} placeholder="70"
+            <input type="number" value={weight} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile( e.target.value );}}} placeholder="70"
               className="w-28 bg-dark-900/50 border border-dark-700/50 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary-500/50" />
           </div>
           <div>
             <label className="text-xs text-dark-200/40 block mb-1">Height (cm)</label>
-            <input type="number" value={height} onChange={e => setHeight(e.target.value)} placeholder="170"
+            <input type="number" value={height} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile(e.target.value);}}} placeholder="170"
               className="w-28 bg-dark-900/50 border border-dark-700/50 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary-500/50" />
           </div>
           <button onClick={handleBMI} className="px-6 py-2 bg-primary-600 hover:bg-primary-500 rounded-xl text-sm font-semibold transition">Calculate</button>
