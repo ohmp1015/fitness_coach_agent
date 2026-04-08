@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-6 py-8 text-center text-dark-200/30 text-sm border-t border-dark-700/30">
-        <p>FitCoach AI Agent</p>
+        <p>Powered By Ohm Patel | FitCoach AI Agent</p>
       </footer>
     </div>
   );
