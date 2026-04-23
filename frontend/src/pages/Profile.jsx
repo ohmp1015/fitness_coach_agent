@@ -136,7 +136,7 @@ export default function Profile() {
 
         <div className="grid md:grid-cols-2 gap-4">
           <Field label="Full Name">
-            <input type="text" value={profile.name} onChange={e => setProfile({ ...profile, name: e.target.value })} placeholder="Your name" className={inputClass} />
+            <input type="text" value={profile.name} onChange={e => setProfile({ ...profile, name: e.target.value })} placeholder="Your name" className={inputClass} required/>
           </Field>
           <Field label="Age">
             <input type="number" value={profile.age} onChange={e =>{const value = Number(e.target.value); if(value >=1) {setProfile({ ...profile, age: e.target.value });}}} placeholder="25" className={inputClass} required/>
